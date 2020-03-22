@@ -1,6 +1,3 @@
-<!-- Gagan Sharma
-    19114032
-    gagansh7171@gmail.com-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
  <link rel="stylesheet" href="index.css" type="text/css">
-
+ <script type="text/javaScript" src="./index.js"></script>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -34,15 +31,16 @@
             </div>
                                                       
             <div class="container text-white" ><br><br><h1 ><center>WELCOME BACK!</center></h1><br>
-               <div style="margin-left:200px;"> <form action="login.php" method="post" autocomplete="on">
+               <div style="margin-left:200px;"> <form action="login.php" method="post" autocomplete="on" name="loginform" onsubmit="return loginform()">
 <!--input-1 of login--><input type="text" name="username" placeholder="Username" required size=20 >
                 <br>
                 <br>
 
 <!--input-2 of login--><input type="password" name="password" placeholder="Password" size=20 required >
-                <br> 
                 <br>
-               <div class="submit1" ><button type="submit" class="button button-block loginbtn" name="login" >Log In  </button>   </form>
+                <input type="checkbox" name="remember">Remember me
+                <br>
+               <div class="submit1" ><input type="submit" class="loginbtn" name="login" value="Login">   </form>
                 <br><br><a href="forgot.php"><font color="White">Forgot Password</font></a>
 
             </div>
@@ -70,18 +68,19 @@
                                                       
             <div class="container text-white" ><br><h1 ><center>REGISTER HERE</center></h1><br>
                <div style="margin-left:80px;"> 
-                <form action="register.php" method="post" autocomplete="on">
+                <form action="register.php" method="post" autocomplete="on" name="registerform" onsubmit="return registerformfunc()">
                 <input type="text" name="fname" required placeholder="First Name" size=20>
                 &nbsp &nbsp
                 <input type="text" name="lname" required placeholder="Last Name" size=20 >
 
                 <br>
                 <br>
-                <input type="number" name="phone" required placeholder="Phone number" size=20 >
+                
+                <input type="text"  required value="+91" disabled size=1 id="s4"><input type="number" name="phone" required placeholder="Phone number" size=10 id="s5" >
 
                 &nbsp &nbsp
                 SEX : 
-                <input type="radio" id="male" name="gender" value="male">
+                <input type="radio" id="male" name="gender" value="male" checked>
                 <label for="male">Male</label>&nbsp
                 <input type="radio" id="female" name="gender" value="female">
                 <label for="female">Female</label>&nbsp
@@ -98,14 +97,7 @@
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="password" name="password" required placeholder="Set Password" size=30 >
                 <br> 
                 <br>
-               <div style="margin-left:140px;">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="button button-block" name="register" style="background-color: darkcyan;
-                                                                                                                    border:none; 
-                                                                                                                    color: white;
-                                                                                                                    padding: 10px 32px;
-                                                                                                                    text-align: center;
-                                                                                                                    font-size: 16px; 
-                                                                                                                    border-radius: 5px;">Register
-                                                                                                                    </button>
+               <div class="submit1">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="submit" class="loginbtn" name="register" value="Register"> </input>
                 <!--<br><br><a href="#">Forgot Password</a>--></form>
 
             </div>
@@ -129,6 +121,3 @@ function loginon(){
 
     </body>
 </html>
-<!-- Gagan Sharma
-    19114032
-    gagansh7171@gmail.com-->

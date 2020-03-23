@@ -8,7 +8,14 @@ if ($_SESSION['email']==null){
     header("location: msg.php");
 }
 if(isset($_POST['update'])){
-
+    
+    $testphone = test_input($_POST["phone"]);
+    if (!preg_match("/^[6789][0-9]{9}$/",$testphone)) {
+        $_SESSION['msg_head']='ERROR';
+        $_SESSION['msg']='Please enter a correct indian phone number';                
+        header("location: msg_on_profile.php");
+    }
+    
     if(isset($_POST['fname2'])){
         $sql = $mysqli->query("update gagan_users set fname='".$_POST['fname2']."' where email='".$_SESSION['email']."'");
         $_SESSION['fname']=$_POST['fname2'];

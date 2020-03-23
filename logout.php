@@ -29,12 +29,7 @@ session_destroy();
         <div id="login" class="container ">
             <br><br>
             <center><font color="white"><h1>Logged Out</h1><br>
-
-            <?php 
-                                
-                 echo "<br><center> <font color='white'>".$_SESSION['message']."</font></center>";
-                                
-            ?>
+            You have logged out successfully.
             </font></center>
 
             <div class="container col-lg  text-white"  style="margin-top:140px;margin-left:100px;"><a href="index.html"><button class="loginbtn">

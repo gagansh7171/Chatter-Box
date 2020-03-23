@@ -1,0 +1,32 @@
+.main{
+    /*border:2px solid blue;*/
+    display: grid;
+    align-items: center;
+    width:50%;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 15px;
+    grid-row-gap: 10px;
+}
+
+input{
+    padding: 6px 10px;
+    border: 0px;
+    border-bottom: 2px solid rgb(35, 168, 68);
+    
+}
+input :focus{
+
+    padding: 6px 10px;
+    border: 0px;
+    border-bottom: 2px solid rgb(35, 168, 68);
+    
+}
+.loginbtn{
+    background-color: darkcyan;
+    border:none; 
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    font-size: 16px; 
+    border-radius: 5px;
+}

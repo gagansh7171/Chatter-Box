@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -94,8 +95,8 @@
                 <input type="text" name="email" required placeholder="E-mail" size=20 >
 
                 &nbsp &nbsp
-                <input type="text" name="username" required placeholder="Username" size=20 >
-                <br>
+                <input type="text" name="username" onchange="change(this.value)" required placeholder="Username" size=20 >
+                <div id="Usernameerror" ></div>
                 <br>
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="password" name="password" required placeholder="Set Password" size=30 >
                 <br> 
@@ -112,7 +113,25 @@
 
     </div>
 
-<script>function registeron(){
+<script>
+function change(uname){
+    if(uname != ""){
+        var xml = new XMLHttpRequest();
+
+        xml.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                document.getElementById("Usernameerror").textContent = this.responseText;
+            }
+        };
+        xml.open("GET", "./usercheck.php?uname="+uname, true);
+        xml.send();
+    }else{
+        document.getElementById("Usernameerror").textContent = "";
+        return;
+    }
+}
+
+function registeron(){
     document.getElementById("login").style.display = "block" ;
     document.getElementById("register").style.display = "none" ;
 }

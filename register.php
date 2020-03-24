@@ -7,6 +7,7 @@ $phone = $mysqli->escape_string($_POST['phone']);
 $gender = $mysqli->escape_string($_POST['gender']);
 $email = $mysqli->escape_string($_POST['email']);
 $username = $mysqli->escape_string($_POST['username']);
+$password = $mysqli->escape_string(password_hash($_POST['password'],PASSWORD_BCRYPT));
 
 $testemail = test_input($_POST["email"]);
 if (!filter_var($testemail, FILTER_VALIDATE_EMAIL)) {
@@ -29,7 +30,7 @@ if ($result->num_rows > 0){
     header("location: msg.php");
 }
 else{
-
+    $_SESSION['password']=$password;
     $_SESSION['fname']=$fname ;
     $_SESSION['lname']=$lname ;
     $_SESSION['phone']=$phone;

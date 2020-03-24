@@ -1,6 +1,6 @@
 <?php
 
-$host = "ec2-54-164-211-9.compute-1.amazonaws.com";
+$host = "ubuntu@ec2-54-164-211-9.compute-1.amazonaws.com";
 $user = "first_year" ;
 $pass = "first_year";
 $db = "first_year";

@@ -1,23 +1,29 @@
 <?php
 require 'db.php';
 session_start();
-$fname = $mysqli->escape_string($_POST['fname']);
-$lname = $mysqli->escape_string($_POST['lname']);
-$phone = $mysqli->escape_string($_POST['phone']);
-$gender = $mysqli->escape_string($_POST['gender']);
-$email = $mysqli->escape_string($_POST['email']);
-$username = $mysqli->escape_string($_POST['username']);
-$password = $mysqli->escape_string(password_hash($_POST['password'],PASSWORD_BCRYPT));
+function test_input($data)
+{
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = $mysqli->escape_string($data);
+   return $data;
+}
+$fname = test_input($_POST['fname']);
+$lname = test_input($_POST['lname']);
+$phone = test_input($_POST['phone']);
+$gender = test_input($_POST['gender']);
+$email = test_input($_POST['email']);
+$username = test_input($_POST['username']);
+$password = test_input(password_hash($_POST['password'],PASSWORD_BCRYPT)); 
 
-$testemail = test_input($_POST["email"]);
-if (!filter_var($testemail, FILTER_VALIDATE_EMAIL)) {
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $_SESSION['msg_head']='ERROR';
     $_SESSION['msg']='Please enter a proper email address';                
     header("location: msg.php");
 }
 
-$testphone = test_input($_POST["phone"]);
-if (!preg_match("/^[6789][0-9]{9}$/",$testphone)) {
+
+if (!preg_match("/^[6789][0-9]{9}$/",$phone)) {
     $_SESSION['msg_head']='ERROR';
     $_SESSION['msg']='Please enter a correct indian phone number';                
     header("location: msg.php");

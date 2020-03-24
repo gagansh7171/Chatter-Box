@@ -78,3 +78,7 @@ input{
     background-color: darkblue;
     color:white;
   }
+#Usernameerror{
+    color:red;
+    left: 400px;
+}

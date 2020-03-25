@@ -59,10 +59,10 @@ if ($_SESSION['email']==null){
     <hr size=30>
         <table>
             <tr>
-                <td>
+                <td style="vertical-align:middle;">
                     <?php 
                     $email = $_SESSION['email'];
-                    $sql = $mysqli->query("SELECT * FROM users where email = '$email'");
+                    $sql = $mysqli->query("SELECT * FROM gagan_users where email = '$email'");
                     $row = $sql->fetch_assoc();
                     $imageURL = $row['profile_photo'];?>
                     <img src="<?php echo $imageURL; ?>" style="border-radius:50%;margin-left:250px;height:200px">

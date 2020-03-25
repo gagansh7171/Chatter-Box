@@ -8,31 +8,37 @@ if ($_SESSION['email']==null){
     header("location: msg.php");
 }
 if(isset($_POST['update'])){
-    
-    $testphone = test_input($_POST["phone"]);
-    if (!preg_match("/^[6789][0-9]{9}$/",$testphone)) {
-        $_SESSION['msg_head']='ERROR';
-        $_SESSION['msg']='Please enter a correct indian phone number';                
-        header("location: msg_on_profile.php");
-    }
-    
-    if(isset($_POST['fname2'])){
-        $sql = $mysqli->query("update gagan_users set fname='".$_POST['fname2']."' where email='".$_SESSION['email']."'");
-        $_SESSION['fname']=$_POST['fname2'];
+
+    if($_POST['phone']!=""){
+        $phone2=$mysqli->escape_string($_POST['phone']);
+        if (preg_match("/^[6789][0-9]{9}$/",$phone2) == FALSE) {
+            $_SESSION['msg_head']='ERROR';
+            $_SESSION['msg']='Please enter a correct indian phone number';                
+            header("location: msg_on_profile.php");
+        }
+        else{
+        $sql = $mysqli->query("update gagan_users set phone='".$phone2."' where email='".$_SESSION['email']."'");
+        $_SESSION['phone']=$phone2;
+        }
     }
 
-    if(isset($_POST['lname2'])){
-        $sql = $mysqli->query("update gagan_users set lname='".$_POST['lname2']."' where email='".$_SESSION['email']."'");
-        $_SESSION['lname']=$_POST['lname'];
+    if($_POST['fname2']!=""){
+        $fname2=$mysqli->escape_string($_POST['fname2']);
+        $sql = $mysqli->query("update gagan_users set fname='".$fname2."' where email='".$_SESSION['email']."'");
+        $_SESSION['fname']=$fname2;
     }
 
-    if(isset($_POST['phone'])){
-        $sql = $mysqli->query("update gagan_users set phone='".$_POST['phone']."' where email='".$_SESSION['email']."'");
-        $_SESSION['phone']=$_POST['phone'];
+    
+    if($_POST['gender']!=""){
+        $gender=$mysqli->escape_string($_POST['gender']);
+        $sql = $mysqli->query("update gagan_users set gender='".$gender."' where email='".$_SESSION['email']."'");
+        $_SESSION['gender']=$gender;
     }
-    if(isset($_POST['gender'])){
-        $sql = $mysqli->query("update gagan_users set gender='".$_POST['gender']."' where email='".$_SESSION['email']."'");
-        $_SESSION['gender']=$_POST['gender'];
+
+    if($_POST['lname2']!=""){
+        $lname2=$mysqli->escape_string($_POST['lname2']);
+        $sql = $mysqli->query("update gagan_users set lname='".$lname2."' where email='".$_SESSION['email']."'");
+        $_SESSION['lname']=$lname2;
     }
     header("location:profile.php");
 }
@@ -62,6 +68,7 @@ if(isset($_POST['update'])){
 
   <link rel="stylesheet" href="update.css" type="text/css">
     <title>Update</title>
+
 </head>
 <body>
 
@@ -89,7 +96,7 @@ if(isset($_POST['update'])){
     </div> 
     <hr size=30>
     <br><br> 
-    <form method="POST" action="update.php" enctype="multipart/form-data"></form>
+    <form method="POST" action="update.php" enctype="multipart/form-data">
     <center>
     <div class="main">
         

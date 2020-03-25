@@ -5,5 +5,5 @@ $result = $mysqli->query("SELECT * from gagan_users where username='$uname'") or
 if ($result->num_rows > 0){
     echo "Username already exists.";
 }
-else{ echo "";}
+else{ echo "&nbsp";}
 ?>

@@ -22,7 +22,7 @@ session_start();
     </head>
     <body>
         <center><div class="container">
-            <a><h1 class="display-3" style="color:blue;"><img src="./asset/logo.jpeg"  style="height:80px;">Converse Point</h1></a>
+            <a><h1 class="display-3" style="color:blue;"><img src="./asset/logo.png"  style="height:80px;">Converse Point</h1></a>
         </div></center><hr size=30>
 
         <div id="login" class="container ">
@@ -30,12 +30,12 @@ session_start();
             <center><font color="white"><h1><?php echo $_SESSION['msg_head']?></h1><br>
 
             <?php 
-                echo "<br><center> <font color='white'>".$_SESSION['message']."</font></center>";
+                echo "<br><center> <font color='white'>".$_SESSION['msg']."</font></center>";
             ?>
             </font></center>                            
-
-            <div class="container col-lg  text-white"  style="margin-top:140px;margin-left:100px;"><a href="profile.php"><button class="loginbtn"><center><h4>Account</h4></center></button></a>
-            </div>
+            <center>
+            <div class="container col-lg  text-white"  style="margin-top:140px;"><a href="profile.php"><button class="loginbtn"><center><h4>Account</h4></center></button></a>
+            </div></center>
         </div>
 
 

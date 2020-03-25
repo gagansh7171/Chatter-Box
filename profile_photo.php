@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
             // Upload file to server
             if(move_uploaded_file($_FILES["photo"]["tmp_name"], $targetFilePath)){
                 // Insert image file name into database
-                $insert = $mysqli->query("UPDATE users SET profile_photo ='".$targetFilePath."'WHERE username='".$username."'");
+                $insert = $mysqli->query("UPDATE gagan_users SET profile_photo ='".$targetFilePath."'WHERE username='".$username."'");
                 if($insert){
                     $_SESSION['msg'] = "The profile photo has been updated successfully.";
                     $_SESSION['msg_head']="SUCCESS";

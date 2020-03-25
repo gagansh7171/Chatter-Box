@@ -1,15 +1,22 @@
 <?php
 session_start();
+if(isset($_SESSION['remember']) && isset($_SESSION['rememberforcookie_gagan'])){
+    if(isset($_SESSION['remember']) == 'yes'){
+        setcookie('rememberforcookie_gagan',$_SESSION['rememberforcookie_gagan'], time() + (2*24*60*60), "/");
+
+        setcookie('rememberforcookie_gagan_email',$_SESSION['email'], time() + (2*24*60*60), "/");
+    }
+}
 session_destroy();
 ?>
 <html>
     <head>
-        <title><?php echo $_SESSION['msg_head'] ;?></title>
+        <title>Log Out</title>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="reset.css">
-        <link rel="stylesheet" type="text/css" href="photo.css">
+        <link rel="stylesheet" type="text/css" href="index.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
       
         <!-- jQuery library -->
@@ -29,10 +36,11 @@ session_destroy();
         <div id="login" class="container ">
             <br><br>
             <center><font color="white"><h1>Logged Out</h1><br>
+
             You have logged out successfully.
             </font></center>
 
-            <div class="container col-lg  text-white"  style="margin-top:140px;margin-left:100px;"><a href="index.html"><button class="loginbtn">
+            <div class="container col-lg  text-white"  style="margin-top:140px;margin-left:100px;"><a href="index.php"><button class="btnstyle">
             <center><h4>Home</h4></center></button></a>
             </div>
         </div>

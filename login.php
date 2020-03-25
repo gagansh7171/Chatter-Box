@@ -4,7 +4,7 @@ session_start();
 $username= $mysqli->escape_string($_POST['username']);
 $_SESSION['username']=$username; 
 $_SESSION['$password']= $mysqli->escape_string($_POST['password']);
-$result = $mysqli->query("SELECT * FROM users where username='$username'");
+$result = $mysqli->query("SELECT * FROM gagan_users where username='$username'");
 if ($result->num_rows == 0){
     $_SESSION['msg_head']='ERROR';
     $_SESSION['msg']='User with this username is not registered';                
@@ -14,7 +14,11 @@ else{
 
     $user=$result->fetch_assoc();                                                    //if new user
     if(password_verify($_SESSION['$password'], $user['password'])){
-
+        $_SESSION['remember']='no';
+        if(isset($_POST['remember'])){
+            $_SESSION['remember'] = 'yes';
+            $_SESSION['rememberforcookie_gagan'] = $user['password'];
+        }
         $_SESSION['email'] = $user['email'];
         $_SESSION['gender'] = $user['gender'];
         $_SESSION['phone'] = $user['phone'];

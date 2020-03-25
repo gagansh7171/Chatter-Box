@@ -16,7 +16,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 
-if (!preg_match("/^[6789][0-9]{9}$/",$phone)) {
+if (preg_match("/^[6789][0-9]{9}$/",$phone) == FALSE) {
     $_SESSION['msg_head']='ERROR';
     $_SESSION['msg']='Please enter a correct indian phone number';                
     header("location: msg.php");
@@ -37,7 +37,7 @@ else{
     $_SESSION['email']=$email ;
     $_SESSION['username']=$username;
     $hash = $mysqli->escape_string(md5(rand(0,1000)));
-    $_SESSION["link"] = "http://ec2-54-164-211-9.compute-1.amazonaws.com/gagan/verify.php?email=$email&hash=$hash";
+    $_SESSION["link"] = "http://localhost/php/verify.php?email=$email&hash=$hash";
 
     $to=$email;
         $Subject="Account Verification ";

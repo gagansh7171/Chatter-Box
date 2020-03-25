@@ -31,13 +31,13 @@ session_start();
             <center><font color="white"><h1><?php echo $_SESSION['msg_head'] ;?></h1><br>
             
             <?php 
-                                
-                 echo "<br><center> <font color='white'>".$_SESSION['message']."</font></center>";
+                       
+                 echo "<br><center> <font color='white'>".$_SESSION['msg']."</font></center>";
                                 
             ?></font></center>
                                 
 
-            <div class="container col-lg  text-white"  style="margin-top:140px;margin-left:100px;"><a href="index.html"><button class="loginbtn">
+            <div class="container col-lg  text-white"  style="margin-top:140px;margin-left:100px;"><a href="index.php"><button class="loginbtn">
             <center><h4>Home</h4></center></button></a>
             </div>
         </div>

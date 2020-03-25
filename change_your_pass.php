@@ -6,7 +6,7 @@ if (isset($_SESSION['hash_it']))
     if (isset($_POST['new'])){
         $email = $_SESSION['email_it'];
         $password = $mysqli->escape_string(password_hash($_POST['new_password'],PASSWORD_BCRYPT));
-        $sql ="UPDATE users SET password = '".$password."' where email = '$email'";
+        $sql ="UPDATE gagan_users SET password = '".$password."' where email = '$email'";
         $result = $mysqli->query($sql);
         if ($result){
             $_SESSION['msg'] = 'Your password is updated successfully.';

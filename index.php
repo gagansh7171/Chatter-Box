@@ -1,4 +1,24 @@
+<?php
+    require 'db.php';
+    if(isset($_COOKIE['rememberforcookie_gagan'])){
+    if($_COOKIE['rememberforcookie_gagan'] != ''){
+        $cook=$_COOKIE['rememberforcookie_gagan'];
+        $result = $mysqli->query("SELECT * FROM gagan_users where password='$cook'");
+        if($result->num_rows>0){
+            $user = $result->fetch_assoc();
+            session_start();
+            $_SESSION['username']=$user['username'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['gender'] = $user['gender'];
+            $_SESSION['phone'] = $user['phone'];
+            $_SESSION['fname'] = $user['fname'];
+            $_SESSION['lname'] = $user['lname'];
 
+            header("location: profile.php");
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -42,7 +62,7 @@
 
 <!--input-2 of login--><input type="password" name="password" placeholder="Password" size=20 required >
                 <br>
-                <input type="checkbox" name="remember">Remember me
+                <input type="checkbox" name="remember" value="yes">Remember me
                 <br>
                <div class="submit1" ><input type="submit" class="loginbtn" name="login" value="Login">   </form>
                 <br><br><a href="forgot.php"><font color="White">Forgot/Change Password</font></a>
@@ -97,7 +117,6 @@
                 &nbsp &nbsp
                 <input type="text" name="username" onchange="change(this.value)" required placeholder="Username" size=20 >
                 <div id="Usernameerror" >&nbsp</div>
-          
                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="password" name="password" required placeholder="Set Password" size=30 >
                 <br> 
                 <br>
@@ -120,13 +139,13 @@ function change(uname){
 
         xml.onreadystatechange = function(){
             if(this.readyState == 4 && this.status == 200){
-                document.getElementById("Usernameerror").textContent = this.responseText;
+                document.getElementById("Usernameerror").innerHTML = this.responseText;
             }
         };
         xml.open("GET", "./usercheck.php?uname="+uname, true);
         xml.send();
     }else{
-        document.getElementById("Usernameerror").textContent = "";
+
         return;
     }
 }

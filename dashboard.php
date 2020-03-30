@@ -40,16 +40,16 @@ if ($_SESSION['email']==null){
             <br>
             <div class="col-md"><br>
                 <div class="dropdown" style="margin-left:550px;">
-                    <button class="btn btn-secondary btn-light " type="button"  data-toggle="dropdown" >
+                    <a href="profile.php"><button class="btn btn-secondary btn-light " type="button"  data-toggle="dropdown" >
                         <i class="material-icons" style="font-size:40px;color:blue">account_box</i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" >
+                        </button></a>
+                    <!--div class="dropdown-menu dropdown-menu-right" >
                         <a class="dropdown-item" href="profile.php">Account</a>
                         <a class="dropdown-item" href="update.php">Update credentials</a>
                         <a class="dropdown-item" href="profile_photo.php">Update Profile Photo</a>
                         <a class="dropdown-item" href="dashboard.php">Dashboard</a>
                         <a class="dropdown-item" href="logout.php">Log Out</a>
-                    </div>
+                    </div-->
                 </div>
             </div>
             

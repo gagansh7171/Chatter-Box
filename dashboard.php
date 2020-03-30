@@ -2,6 +2,25 @@
 
 require 'db.php';
 session_start();
+if(isset($_COOKIE['rememberforcookie_gagan'])){
+    if($_COOKIE['rememberforcookie_gagan'] != ''){
+        $cook=$_COOKIE['rememberforcookie_gagan'];
+        $result = $mysqli->query("SELECT * FROM gagan_users where password='$cook'");
+        if($result->num_rows>0){
+            $user = $result->fetch_assoc();
+            $_SESSION['username']=$user['username'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['gender'] = $user['gender'];
+            $_SESSION['phone'] = $user['phone'];
+            $_SESSION['fname'] = $user['fname'];
+            $_SESSION['lname'] = $user['lname'];
+
+        }
+
+    }
+
+}
+
 if ($_SESSION['email']==null){
     $_SESSION['msg']="Try to access your account through the login page.";
     $_SESSION['msg_head']='ERROR';

@@ -37,7 +37,7 @@ else{
     $_SESSION['email']=$email ;
     $_SESSION['username']=$username;
     $hash = $mysqli->escape_string(md5(rand(0,1000)));
-    $_SESSION["link"] = "http://localhost/php/verify.php?email=$email&hash=$hash";
+    $_SESSION["link"] = "http://ec2-54-226-165-138.compute-1.amazonaws.com/gagan/verify.php?email=$email&hash=$hash";
 
     $to=$email;
         $Subject="Account Verification ";

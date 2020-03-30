@@ -16,6 +16,11 @@
 
             header("location: profile.php");
         }
+    
+    }
+
+    if ($_SESSION['email']!=null){
+        header("location: profile.php");
     }
 }
 ?>
@@ -41,7 +46,7 @@
 
     <body>
         <center><div class="container">
-            <a href ="./index.html"><h1 class="display-3"><img src="./asset/logo.png"  style="height:80px;">Converse Point</h1></a>
+            <a href="index.php"><h1 class="display-3"><img src="./asset/logo.png"  style="height:80px;">Converse Point</h1></a>
         </div></center><hr size=30>
 <!--------------------------------login-------------------------------------------------------------->
     <div id="login" class="container login">

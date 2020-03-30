@@ -96,7 +96,10 @@ if ($_SESSION['email']==null){
         $('#user_dialog_'+touser).dialog('open');
         
     }
-    function history(to_user_id)
+	
+	
+    var interv = setInterval(chatupdate, 500);
+	function history(to_user_id)
     {
         $.ajax({
             url:"history.php",
@@ -115,7 +118,6 @@ if ($_SESSION['email']==null){
             history(to_user_id);
         });
     }
-    setInterval(chatupdate(), 1500);
 
     $(document).on('click', '.send_chat', function(){
         var to_user_id = $(this).attr('id');

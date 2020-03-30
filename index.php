@@ -1,12 +1,13 @@
 <?php
     require 'db.php';
+
+    session_start();
     if(isset($_COOKIE['rememberforcookie_gagan'])){
     if($_COOKIE['rememberforcookie_gagan'] != ''){
         $cook=$_COOKIE['rememberforcookie_gagan'];
         $result = $mysqli->query("SELECT * FROM gagan_users where password='$cook'");
         if($result->num_rows>0){
             $user = $result->fetch_assoc();
-            session_start();
             $_SESSION['username']=$user['username'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['gender'] = $user['gender'];
@@ -19,10 +20,13 @@
     
     }
 
-    if ($_SESSION['email']!=null){
-        header("location: profile.php");
-    }
 }
+
+	if(isset ($_SESSION['email'])){
+		
+        	header("location: profile.php");
+    	}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

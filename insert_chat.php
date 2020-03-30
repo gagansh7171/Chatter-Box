@@ -8,9 +8,10 @@ if ($_SESSION['email']==null){
     header("location: msg.php");
 }
 
-$from = $_SESSION['username'];
-$to = $_POST['to_user_id'];
-$msg = $_POST['chat_message'];
+$from = $mysqli->escape_string($_SESSION['username']);
+$to = $mysqli->escape_string($_POST['to_user_id']);
+$msge = $mysqli->escape_string($_POST['chat_message']);
+$msg = trim($msge);
 
 if($mysqli->query("INSERT into gagan_msg values('$from','$to','$msg',NOW())")){
     echo fetch_all_data($from, $to, $mysqli);

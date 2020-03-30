@@ -8,8 +8,8 @@ if ($_SESSION['email']==null){
     header("location: msg.php");
 }
 
-$from = $_SESSION['username'];
-$to = $_POST['to_user_id'];
+$from = $mysqli->escape_string($_SESSION['username']);
+$to = $mysqli->escape_string($_POST['to_user_id']);
 
 echo fetch_all_data($from, $to, $mysqli);
 
@@ -19,6 +19,7 @@ function fetch_all_data($from, $to, $mysqli){
     $output = '<ul class="list-unstyled">';
     while( $row = $fetchin->fetch_assoc())
     {
+     $message=trim($row["msg"]);
      $user_name = '';
      if($row["gfrom"] == $from)
      {
@@ -30,7 +31,7 @@ function fetch_all_data($from, $to, $mysqli){
      }
      $output .= '
      <li style="border-bottom:1px dotted #ccc">
-      <p>'.$uname.' - '.$row["msg"].'
+      <p>'.$uname.' - '.htmlspecialchars($message, ENT_COMPAT | ENT_HTML5, 'UTF-8').'
        <div align="right">
         - <small><em>'.$row['occur'].'</em></small>
        </div>

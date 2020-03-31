@@ -34,7 +34,7 @@ session_start();
             ?>
             </font></center>                            
             <center>
-            <div class="container col-lg  text-white"  style="margin-top:140px;"><a href="profile.php"><button class="loginbtn"><center><h4>Account</h4></center></button></a>
+            <div class="container col-lg  text-white"  style="margin-top:140px;"><a href="dashboard.php"><button class="loginbtn"><center><h4>Dashboard</h4></center></button></a>
             </div></center>
         </div>
 

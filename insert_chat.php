@@ -12,6 +12,7 @@ $from = $mysqli->escape_string($_SESSION['username']);
 $to = $mysqli->escape_string($_POST['to_user_id']);
 $msge = $mysqli->escape_string($_POST['chat_message']);
 $msg = trim($msge);
+$msge = htmlspecialchars($msge, ENT_COMPAT | ENT_HTML5, 'UTF-8');
 
 if($mysqli->query("INSERT into gagan_msg values('$from','$to','$msg',NOW())")){
     echo fetch_all_data($from, $to, $mysqli);

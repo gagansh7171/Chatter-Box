@@ -29,7 +29,11 @@ if ($_SESSION['email']==null){
 }
 ?>
 <?php
-if($_SESSION['photo']=="./asset/default_profile_photo.jpeg"){
+$us = $_SESSION['username'];
+                    $sql = $mysqli->query("SELECT * FROM gagan_users where username = '$us'");
+                    $row = $sql->fetch_assoc();
+                    $imageURL = $row['profile_photo'];
+if($imageURL=="./asset/default_profile_photo.jpeg"){
         header("location: condition.php");
 }
 

@@ -20,6 +20,8 @@ function fetch_all_data($from, $to, $mysqli){
     while( $row = $fetchin->fetch_assoc())
     {
      $message=trim($row["msg"]);
+     str_replace("<","&lt;",$message);	    
+     str_replace(">","&gt;",$message);	    
      $user_name = '';
      if($row["gfrom"] == $from)
      {

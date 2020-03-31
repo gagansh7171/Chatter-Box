@@ -29,7 +29,11 @@ if ($_SESSION['email']==null){
 
 ?>
 <?php
-if($_SESSION['photo']=="./asset/default_profile_photo.jpeg"){
+$us = $_SESSION['username'];
+                    $sql = $mysqli->query("SELECT * FROM gagan_users where username = '$us'");
+                    $row = $sql->fetch_assoc();
+                    $imageURL = $row['profile_photo'];
+if($imageURL=="./asset/default_profile_photo.jpeg"){
         header("location: condition.php");
 }
 
@@ -154,8 +158,9 @@ if($_SESSION['photo']=="./asset/default_profile_photo.jpeg"){
             data:{to_user_id:to_user_id, chat_message:chat_message},
             success:function(data)
             {
-                $('#chat_message_'+to_user_id).val('');
-                $('#chat_history'+to_user_id).html(data);
+		 $('#chat_message_'+to_user_id).val('');
+		var d = data.replace(/</g, "&lt;").replace(/>/g, "&gt;");    
+                $('#chat_history'+to_user_id).html(d);
             }
         })
     });

@@ -24,8 +24,8 @@ else{
         $_SESSION['phone'] = $user['phone'];
         $_SESSION['fname'] = $user['fname'];
         $_SESSION['lname'] = $user['lname'];
-
-        header("location: profile.php");
+	$_SESSION['photo'] = $user['profile_photo'];
+        header("location: dashboard.php");
     }
     else{
         $_SESSION['msg_head']='ERROR';

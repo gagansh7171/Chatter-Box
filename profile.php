@@ -14,6 +14,7 @@ if(isset($_COOKIE['rememberforcookie_gagan'])){
             $_SESSION['phone'] = $user['phone'];
             $_SESSION['fname'] = $user['fname'];
             $_SESSION['lname'] = $user['lname'];
+            $_SESSION['photo']=$user['profile_photo'];
 
         }
 
@@ -25,6 +26,11 @@ if ($_SESSION['email']==null){
     $_SESSION['msg']="Try to access your account through the login page.";
     $_SESSION['msg_head']='ERROR';
     header("location: msg.php");
+}
+?>
+<?php
+if($_SESSION['photo']=="./asset/default_profile_photo.jpeg"){
+        header("location: condition.php");
 }
 
 ?>

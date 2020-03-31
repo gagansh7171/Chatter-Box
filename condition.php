@@ -13,7 +13,6 @@ if(isset($_COOKIE['rememberforcookie_gagan'])){
             $_SESSION['phone'] = $user['phone'];
             $_SESSION['fname'] = $user['fname'];
             $_SESSION['lname'] = $user['lname'];
-            $_SESSION['photo']=$user['profile_photo'];
 
         }
 
@@ -53,7 +52,8 @@ if(isset($_POST['submit'])){
                 $insert = $mysqli->query("UPDATE gagan_users SET profile_photo ='".$targetFilePath."'WHERE username='".$username."'");
                 if($insert){
                     $_SESSION['msg'] = "The profile photo has been updated successfully.";
-                    $_SESSION['msg_head']="SUCCESS";
+		    $_SESSION['msg_head']="SUCCESS";
+		    $_SESSION['photo']=$targetFilePath;
                     header("location: msg_on_profile.php");
                 }else{
                     $_SESSION['msg'] = "File upload failed, please try again.";
@@ -124,8 +124,10 @@ if(isset($_POST['submit'])){
 
     <div id="login" class="container " >
         <br><br>
-        <h1><center><font color="white">Update Profile Photo</font></center></h1><br>
-        <br>
+        <h1><center><font color="white">Upload Profile Photo</font></center></h1><br>
+	<br>
+<center> <font color='white'>Please upload your profile photo to proceed</font></center>
+<br>
         <form action="profile_photo.php" method="POST" enctype="multipart/form-data">
             <center><input type="file" name= "photo" style="color:white;"><br><br><br>
             <button name="submit" type="submit" class="loginbtn">Upload</button></center>

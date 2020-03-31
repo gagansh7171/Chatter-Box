@@ -14,6 +14,7 @@ if(isset($_COOKIE['rememberforcookie_gagan'])){
             $_SESSION['phone'] = $user['phone'];
             $_SESSION['fname'] = $user['fname'];
             $_SESSION['lname'] = $user['lname'];
+            $_SESSION['photo']=$user['profile_photo'];
 
         }
 

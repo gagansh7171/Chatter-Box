@@ -15,7 +15,7 @@
             $_SESSION['fname'] = $user['fname'];
             $_SESSION['lname'] = $user['lname'];
 
-            header("location: profile.php");
+            header("location: dashboard.php");
         }
     
     }
@@ -24,7 +24,7 @@
 
 	if(isset ($_SESSION['email'])){
 		
-        	header("location: profile.php");
+        	header("location: dashboard.php");
     	}
 
 ?>

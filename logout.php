@@ -1,12 +1,9 @@
 <?php
 session_start();
-if(isset($_SESSION['remember']) && isset($_SESSION['rememberforcookie_gagan'])){
-    if(isset($_SESSION['remember']) == 'yes'){
-        setcookie('rememberforcookie_gagan',$_SESSION['rememberforcookie_gagan'], time() + (2*24*60*60), "/");
+        setcookie('rememberforcookie_gagan',$_SESSION['rememberforcookie_gagan'], time() - (2*24*60*60), "/");
 
-        setcookie('rememberforcookie_gagan_email',$_SESSION['email'], time() + (2*24*60*60), "/");
-    }
-}
+        setcookie('rememberforcookie_gagan_email',$_SESSION['email'], time() - (2*24*60*60), "/");
+    
 session_destroy();
 ?>
 <html>

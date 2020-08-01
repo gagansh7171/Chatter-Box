@@ -1,4 +1,5 @@
 # PHP-assignment
+A chatting app made using PHP.
 two tables are required for the database.
 
     create table gagan_users(fname varchar(100) not null,lname varchar(100) not null,email varchar(100) not null,password varchar(100) not null,username varchar(100) not null,phone varchar(100) not null,gender varchar(10) not null,profile_photo varchar(50) default './asset/default_profile_photo.jpeg');
